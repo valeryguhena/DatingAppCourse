@@ -1,0 +1,21 @@
+<div class="container p-5">
+  <div class="text-center" *ngIf="!registerMode">
+    <h1>Find your maches</h1>
+    <p class="lead">Come on in and view your maches... All you need to do is to sign up!</p>
+    <div class="text-center">
+      <button class="btn btn-success btn-lg mr-2" (click)="activateRegisterMode()">Register</button>
+      <button class="btn btn-secondary btn-lg">Learn More</button>
+    </div>
+  </div>
+
+  <div  class="container" *ngIf="registerMode">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <app-register (cancelRegister) = "cancelRegisterMode(false)" ></app-register>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

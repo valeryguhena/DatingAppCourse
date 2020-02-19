@@ -36,7 +36,7 @@ namespace ServerApp.Controllers
 				Username = userToRegiser.Username
 			};
 			await _repos.Register(userToReturn, userToRegiser.Password);
-			return Ok("Registration successful");
+			return Ok();
 		}
 
 		[HttpPost("login")]

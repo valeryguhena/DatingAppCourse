@@ -12,7 +12,7 @@ values: any;
   constructor( private http: HttpClient) { }
 
   ngOnInit() {
-    this.getValues();
+    //this.getValues();
   }
   getValues(){
     this.http.get('http://localhost:5000/api/values').subscribe(Response=>{
