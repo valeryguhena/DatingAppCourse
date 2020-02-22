@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -38,6 +41,18 @@ namespace ServerApp.Controllers
 			var user = await _repos.GetUser(id);
 			var userToReturn = _mapper.Map<UserDetailsDto>(user);
 			return Ok(userToReturn);
+		}
+
+		[HttpPut("{id}")]
+		public async Task<IActionResult> UpdateUserInfo(int id, UserForUpdateDto userForUpdateDto)
+		{
+			if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+				return Unauthorized();
+			var userFromRepos = await _repos.GetUser(id);
+			_mapper.Map(userForUpdateDto, userFromRepos);
+			if(await _repos.SaveAll())
+				return NoContent();
+			throw new Exception($"could no save user with id = {id}");
 		}
 	}
 }
