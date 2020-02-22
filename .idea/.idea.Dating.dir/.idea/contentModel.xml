@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Valery\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Valery\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Valery\Desktop\Dating" t="IncludeFlat">
+      <e p="ClientApp\node_modules\@angular\animations" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular\cli" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular\common" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular\compiler" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular\compiler-cli" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular\core" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular\forms" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular\platform-browser" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular\platform-browser-dynamic" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular\router" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular-devkit\architect" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular-devkit\build-angular" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular-devkit\build-optimizer" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular-devkit\build-webpack" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular-devkit\core" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@angular-devkit\schematics" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@auth0\angular-jwt" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@ngtools\webpack" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\@types" t="IncludeRecursive">
+        <e p="events" t="IncludeRecursive" />
+        <e p="jasmine" t="IncludeRecursive" />
+        <e p="jasminewd2" t="IncludeRecursive" />
+        <e p="minimatch" t="IncludeRecursive" />
+        <e p="node" t="IncludeRecursive" />
+        <e p="source-list-map" t="IncludeRecursive" />
+      </e>
+      <e p="ClientApp\node_modules\ajv" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\alertifyjs" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\blocking-proxy" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\bootstrap" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\canonical-path" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\chalk" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\chokidar" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\codelyzer" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\commander" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\coverage-istanbul-loader" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\dependency-graph" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\es6-promise" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\fast-deep-equal" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\font-awesome" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\jasmine-core" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\jasmine-spec-reporter" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\jest-worker" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\karma" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\karma-chrome-launcher" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\karma-coverage-istanbul-reporter" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\karma-jasmine" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\karma-jasmine-html-reporter" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\license-webpack-plugin" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\magic-string" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\ngx-bootstrap" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\ngx-gallery" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\portfinder" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\postcss" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\protractor" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\reflect-metadata" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\rxjs" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\screenfull" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\source-map" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\sourcemap-codec" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\symbol-observable" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\terser" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\tree-kill" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\ts-node" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\tslib" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\tslint" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\upath" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\uri-js" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\webdriver-js-extender" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\worker-farm" t="IncludeRecursive" />
+      <e p="ClientApp\node_modules\zone.js" t="IncludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="ServerApp" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="AuthController.cs" t="Include" />
+          <e p="UsersController.cs" t="Include" />
+          <e p="ValuesController.cs" t="Include" />
+        </e>
+        <e p="Data" t="Include">
+          <e p="DataContext.cs" t="Include" />
+          <e p="Seed.cs" t="Include" />
+          <e p="UserSeedData.json" t="Include" />
+        </e>
+        <e p="Dtos" t="Include">
+          <e p="PhotoForDetailDto.cs" t="Include" />
+          <e p="PhotoForReturnDto.cs" t="Include" />
+          <e p="UserDetailsDto.cs" t="Include" />
+          <e p="UserForLoginDto.cs" t="Include" />
+          <e p="UserForRegisterDto.cs" t="Include" />
+          <e p="UserListDto.cs" t="Include" />
+        </e>
+        <e p="Helper" t="Include">
+          <e p="AutoMapperProfile.cs" t="Include" />
+          <e p="Extensions.cs" t="Include" />
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20200218194414_Initial.cs" t="Include" />
+          <e p="20200218194414_Initial.Designer.cs" t="Include" />
+          <e p="20200219075536_UserEntityAdded.cs" t="Include" />
+          <e p="20200219075536_UserEntityAdded.Designer.cs" t="Include" />
+          <e p="20200220193620_ExtendedUserEntity.cs" t="Include" />
+          <e p="20200220193620_ExtendedUserEntity.Designer.cs" t="Include" />
+          <e p="DataContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="Photo.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+          <e p="Value.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="ServerApp.AssemblyInfo.cs" t="Include" />
+              <e p="ServerApp.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="ServerApp.csproj" t="IncludeRecursive" />
+        <e p="Services" t="Include">
+          <e p="AuthRepository.cs" t="Include" />
+          <e p="DatingRepository.cs" t="Include" />
+          <e p="IAuthRepository.cs" t="Include" />
+          <e p="IDatingRepository.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+    </e>
+  </component>
+</project>
