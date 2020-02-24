@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ServerApp.Data;
@@ -46,6 +47,19 @@ namespace ServerApp.Services
 		public async Task<bool> SaveAll()
 		{
 			return await _context.SaveChangesAsync() > 0;
+		}
+
+		public async Task<Photo> GetPhoto(int id)
+		{
+			var photo = await _context.Photos.FirstOrDefaultAsync(x => x.Id == id);
+			return photo;
+		}
+
+		public async Task<Photo> GetMainPhoto(int userId)
+		{
+			var mainPhoto = await _context.Photos.Where(x => x.UserId == userId)
+				.FirstOrDefaultAsync(x => x.IsMain);
+			return mainPhoto;
 		}
 	}
 }

@@ -21,6 +21,8 @@ namespace ServerApp.Helper
 					opt.MapFrom(src=>src.DateOfBirth.CalculateAge()));
 			CreateMap<Photo, PhotoForDetailDto>();
 			CreateMap<UserForUpdateDto, User>();
+			CreateMap<Photo, PhotoToReturnDto>();
+			CreateMap<PhotoForCreationDto, Photo>();
 		}
 	}
 }

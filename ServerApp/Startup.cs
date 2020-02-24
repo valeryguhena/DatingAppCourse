@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using ServerApp.Data;
+using ServerApp.Helper;
 using ServerApp.Services;
 
 namespace ServerApp
@@ -35,6 +36,7 @@ namespace ServerApp
             services.AddDbContext<DataContext>(opt =>
                 opt.UseSqlServer(Configuration["ConnectionStrings:DBCS"]));
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudSettings"));
             services.AddScoped<IDatingRepository, DatingRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(opt =>

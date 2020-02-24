@@ -27,6 +27,9 @@ unloadNotification($event:any){
     this.route.data.subscribe(data=>{
       this.user = data['user'];
     });
+    this.authService.currentPhotoUrl.subscribe(url=>{
+      this.user.photoUrl = url;
+    })
   }
   updateUser(){
     this.userService.updateUser(this.authService.decodedToken.nameid, this.user)
@@ -36,7 +39,8 @@ unloadNotification($event:any){
       }, err=>{
         this.alertiry.error(err);
       })
-
   }
-
+updateUserMainPhoto(photoUlr:string){
+this.user.photoUrl = photoUlr;
+}
 }

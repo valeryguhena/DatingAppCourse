@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -18,11 +19,13 @@ namespace ServerApp.Controllers
 	{
 		private readonly IAuthRepository _repos;
 		private readonly IConfiguration _config;
+		private readonly IMapper _mapper;
 
-		public AuthController( IAuthRepository repos, IConfiguration config)
+		public AuthController( IAuthRepository repos, IConfiguration config, IMapper mapper)
 		{
 			_repos = repos;
 			_config = config;
+			_mapper = mapper;
 		}
 
 		[HttpPost("Register")]
@@ -64,9 +67,11 @@ namespace ServerApp.Controllers
 			
 			var tokenHandler = new JwtSecurityTokenHandler();
 			var token = tokenHandler.CreateToken(tokenDescriptor);
+			var user = _mapper.Map<UserListDto>(userFromRepos);
 			return Ok(new
 			{
-				token = tokenHandler.WriteToken(token)
+				token = tokenHandler.WriteToken(token),
+				user
 			});
 		}
 	}

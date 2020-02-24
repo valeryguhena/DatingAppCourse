@@ -6,10 +6,10 @@ declare let alertify:any;
 export class AlertifyService {
 
   constructor() { }
-  confirm(message:string, callBack:()=>void){
+  confirm(message:string, callBack:()=>any){
     alertify.confirm(message, (e)=>{
       if(e){
-        return true
+        callBack();
       }
       else{}
     });
