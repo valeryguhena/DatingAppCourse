@@ -34,12 +34,12 @@ namespace ServerApp.Controllers
 			userToRegiser.Username = userToRegiser.Username.ToLower();
 			if (await _repos.UserExists(userToRegiser.Username))
 				return BadRequest("Username already taken");
-			var userToReturn = new User
-			{
-				Username = userToRegiser.Username
-			};
-			await _repos.Register(userToReturn, userToRegiser.Password);
-			return Ok();
+			var user = _mapper.Map<User>(userToRegiser);
+			
+			var userToCreate = await _repos.Register(user, userToRegiser.Password);
+			var userToReturn = _mapper.Map<UserDetailsDto>(userToCreate);
+			
+			return CreatedAtRoute("GetUser", new {controller = "Users", id = user.Id}, userToReturn);
 		}
 
 		[HttpPost("login")]

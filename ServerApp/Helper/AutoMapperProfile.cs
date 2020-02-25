@@ -23,6 +23,7 @@ namespace ServerApp.Helper
 			CreateMap<UserForUpdateDto, User>();
 			CreateMap<Photo, PhotoToReturnDto>();
 			CreateMap<PhotoForCreationDto, Photo>();
+			CreateMap<UserForRegisterDto, User>();
 		}
 	}
 }
