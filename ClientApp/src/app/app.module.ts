@@ -6,6 +6,7 @@ import {BsDropdownModule, TabsModule, BsDatepickerModule} from 'ngx-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery';
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +47,7 @@ export function tokenGetter(){
       MessagesComponent,
       MemberCardComponent,
      MemberDetailComponent,
-     MemberEditComponent,
+     MemberEditComponent,   TimeAgoPipe,
      PhotoEditorComponent
    ],
    imports: [
@@ -58,6 +59,7 @@ export function tokenGetter(){
      NgxGalleryModule,
      ReactiveFormsModule,
      FileUploadModule,
+  
      BsDatepickerModule.forRoot(),
      TabsModule.forRoot(),
       BsDropdownModule.forRoot(),

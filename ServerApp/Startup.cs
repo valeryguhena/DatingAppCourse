@@ -46,6 +46,7 @@ namespace ServerApp
             services.AddAutoMapper();
             services.AddCors();
             services.AddTransient<Seed>();
+            services.AddScoped<LogUserActivity>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {

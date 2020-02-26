@@ -8,10 +8,12 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ServerApp.Dtos;
+using ServerApp.Helper;
 using ServerApp.Services;
 
 namespace ServerApp.Controllers
 {
+	[ServiceFilter(typeof(LogUserActivity))]
 	[Authorize]
 	[Route("api/[controller]")]
 	[ApiController]
