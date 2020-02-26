@@ -14,7 +14,7 @@ export class MemberListResolver implements Resolve<User[]>{
     return this.userService.getUsers()
       .pipe(
         catchError(err=>{
-          this.alertify.error(err);
+          this.alertify.error('Cannot load users');
           this.router.navigate(['/home']);
           return of(null)
         })

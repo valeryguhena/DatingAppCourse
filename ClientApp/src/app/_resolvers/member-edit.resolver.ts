@@ -15,7 +15,7 @@ export class MemberEditResolver implements Resolve<User>{
   resolve(): Observable<User>  {
     return this.userService.getUser(this.authService.decodedToken.nameid)
       .pipe(catchError(err => {
-        this.alertify.error(err);
+        this.alertify.error('Cannot load user profile');
         this.router.navigate(['/member']);
         return of(null);
         })

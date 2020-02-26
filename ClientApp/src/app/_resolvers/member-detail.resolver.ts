@@ -14,7 +14,7 @@ export class MemberDetailResolver implements Resolve<User>{
    return this.userService.getUser(+route.params['id'])
       .pipe(
         catchError(err => {
-          this.alertiy.error(err);
+          this.alertiy.error('Cannot load user');
           this.router.navigate(['/members']);
           return of(null)
         })

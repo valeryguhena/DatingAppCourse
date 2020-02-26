@@ -31,6 +31,7 @@ import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { ErrorInterceptor } from './_services/error.interceptor';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -79,7 +80,8 @@ export function tokenGetter(){
       MemberListResolver,
      MemberDetailResolver,
      MemberEditResolver,
-     PreventUnsaveChangesGuard
+     PreventUnsaveChangesGuard,
+     ErrorInterceptor
 
    ],
    bootstrap: [

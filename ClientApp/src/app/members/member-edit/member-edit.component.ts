@@ -37,7 +37,7 @@ unloadNotification($event:any){
         this.alertiry.success("User updated successfully");
         this.editForm.reset(this.user)
       }, err=>{
-        this.alertiry.error(err);
+        this.alertiry.error("User updated failed");
       })
   }
 updateUserMainPhoto(photoUlr:string){
