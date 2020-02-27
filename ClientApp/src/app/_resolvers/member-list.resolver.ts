@@ -10,8 +10,10 @@ import { catchError } from 'rxjs/operators';
 export class MemberListResolver implements Resolve<User[]>{
   constructor(private userService:UserService, private router:Router, private alertify:AlertifyService) {
   }
+  pageNumber =1
+  pageSize = 5
   resolve(route: ActivatedRouteSnapshot): Observable<User[]> {
-    return this.userService.getUsers()
+    return this.userService.getUsers(this.pageNumber, this.pageSize)
       .pipe(
         catchError(err=>{
           this.alertify.error('Cannot load users');

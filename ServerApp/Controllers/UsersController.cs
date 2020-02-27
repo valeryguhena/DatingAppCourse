@@ -30,10 +30,18 @@ namespace ServerApp.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> GetUsers()
+		public async Task<IActionResult> GetUsers([FromQuery]UserParams userParams)
 		{
-			var users = await _repos.GetUsers();
+			int currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+			var userFromRepos = await _repos.GetUser(currentUserId);
+			userParams.UserId = currentUserId;
+			if(String.IsNullOrEmpty(userParams.Gender)){
+				userParams.Gender = userFromRepos.Gender == "male" ? "female":"male";
+			}
+
+			var users = await _repos.GetUsers(userParams);
 			var usersToReturn = _mapper.Map<IEnumerable<UserListDto>>(users);
+			Response.AddPagination(users.CurrentPage, users.PageSize, users.TotalItems, users.TotalPages);
 			return Ok(usersToReturn);
 		}
 
