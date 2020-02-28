@@ -18,43 +18,53 @@ import { map } from 'rxjs/operators';
 export class UserService {
    baseUrl = environment.apiUrl + 'users';
 
-constructor(private http:HttpClient) { }
+    constructor(private http:HttpClient) { }
 
-getUsers(page?, itemsPerPage?, userParams?):Observable<PaginatedResult<User[]>>{
-  const paginatedResult:PaginatedResult<User[]> = new PaginatedResult<User[]>();
-  let params = new HttpParams();
-  if(page != null && itemsPerPage != null){
-    params = params.append("pageNumber", page);
-    params = params.append("pageSize", itemsPerPage);
-  }
-  if(userParams != null){
-    params = params.append('minAge', userParams.minAge)
-    params = params.append('maxAge', userParams.maxAge)
-    params = params.append('gender', userParams.gender)
-    params = params.append('orderBy', userParams.orderBy)
-  }
-  return this.http.get<User[]>(this.baseUrl, {observe:'response', params}).pipe(
-    map(response=>{
-      paginatedResult.result = response.body;
-      if(response.headers.get("Pagination")!=null){
-        paginatedResult.pagination = JSON.parse(response.headers.get("Pagination"))
+    getUsers(page?, itemsPerPage?, userParams?, likeParams?):Observable<PaginatedResult<User[]>>{
+      const paginatedResult:PaginatedResult<User[]> = new PaginatedResult<User[]>();
+      let params = new HttpParams();
+      if(page != null && itemsPerPage != null){
+        params = params.append("pageNumber", page);
+        params = params.append("pageSize", itemsPerPage);
       }
-      return paginatedResult;
-    })
-  );
-}
+      if(userParams != null){
+        params = params.append('minAge', userParams.minAge)
+        params = params.append('maxAge', userParams.maxAge)
+        params = params.append('gender', userParams.gender)
+        params = params.append('orderBy', userParams.orderBy)
+      }
+      if(likeParams == 'likers'){
+        params = params.append('likers', 'true')
+      }
+      if(likeParams == 'likees'){
+        params = params.append('likees', 'true')
+      }
+      return this.http.get<User[]>(this.baseUrl, {observe:'response', params}).pipe(
+        map(response=>{
+          paginatedResult.result = response.body;
+          if(response.headers.get("Pagination")!=null){
+            paginatedResult.pagination = JSON.parse(response.headers.get("Pagination"))
+          }
+          return paginatedResult;
+        })
+      );
+    }
 
-getUser(id:number):Observable<User>{
-  return this.http.get<User>(`${this.baseUrl}/${id}`);
-}
-updateUser(id:number, user:User){
-  return this.http.put(`${this.baseUrl}/${id}`, user);
-}
-setMainPhoto(userId:number, photoId:number){
- return this.http.post(`${this.baseUrl}/${userId}/photos/${photoId}/setMain`, {});
-}
+    getUser(id:number):Observable<User>{
+      return this.http.get<User>(`${this.baseUrl}/${id}`);
+    }
+    updateUser(id:number, user:User){
+      return this.http.put(`${this.baseUrl}/${id}`, user);
+    }
+    setMainPhoto(userId:number, photoId:number){
+    return this.http.post(`${this.baseUrl}/${userId}/photos/${photoId}/setMain`, {});
+    }
 
-deletePhoto(userId:number, id:number){
-  return this.http.delete(`${this.baseUrl}/${userId}/photos/${id}`);
-}
+    deletePhoto(userId:number, id:number){
+      return this.http.delete(`${this.baseUrl}/${userId}/photos/${id}`);
+    }
+
+    sendLike(userId:number, recipientId: number){
+      return this.http.post(`${this.baseUrl}/${userId}/like/${recipientId}`, {});
+    }
 }

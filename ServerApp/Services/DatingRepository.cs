@@ -36,6 +36,17 @@ namespace ServerApp.Services
 				.OrderByDescending(x=>x.LastActive);
 				users = users.Where(x=>x.Id != userParams.UserId).OrderByDescending(x => x.LastActive);
 				users = users.Where(x=>x.Gender == userParams.Gender).OrderByDescending(x => x.LastActive);
+				if (userParams.Likers)
+				{
+					var userLikers = await GetUserLikes(userParams.UserId, userParams.Likers);
+					users = users.Where(x => userLikers.Contains(x.Id)).OrderByDescending(x=>x.LastActive);
+				}
+
+				if (userParams.Likees)
+				{
+					var userLikees = await GetUserLikes(userParams.UserId, userParams.Likers);
+					users = users.Where(x => userLikees.Contains(x.Id)).OrderByDescending(x => x.LastActive);
+				}
 				if(userParams.MinAge != 18 || userParams.MaxAge != 99){
 					var minDob = DateTime.Today.AddYears(-userParams.MaxAge - 1);
 					var maxDob = DateTime.Today.AddYears(-userParams.MinAge);
@@ -55,6 +66,23 @@ namespace ServerApp.Services
 				}
 			}
 			return await PageList<User>.CreateAsync(users, userParams.PageNumber, userParams.PageSize);
+		}
+
+		private async Task<IEnumerable<int>> GetUserLikes(int id, bool likers)
+		{
+
+			var user = await _context.Users.Include(l => l.Likees)
+				.Include(l => l.Likers).FirstOrDefaultAsync(x=>x.Id == id);
+			if (likers)
+			{
+				return user.Likers.Where(x => x.LikeeId == id).Select(x => x.LikerId);
+			}
+			else
+			{
+				return user.Likees.Where(x => x.LikerId == id).Select(x => x.LikeeId);
+			}
+
+
 		}
 
 		public async Task<User> GetUser(int id)
@@ -81,6 +109,12 @@ namespace ServerApp.Services
 			var mainPhoto = await _context.Photos.Where(x => x.UserId == userId)
 				.FirstOrDefaultAsync(x => x.IsMain);
 			return mainPhoto;
+		}
+
+		public async Task<Like> GetLike(int userId, int recepientId)
+		{
+			return await _context.Likes.FirstOrDefaultAsync(x => x.LikerId == userId && x.LikeeId == recepientId);	
+
 		}
 	}
 }

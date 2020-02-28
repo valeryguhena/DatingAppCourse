@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ServerApp.Dtos;
 using ServerApp.Helper;
+using ServerApp.Models;
 using ServerApp.Services;
 
 namespace ServerApp.Controllers
@@ -63,6 +64,28 @@ namespace ServerApp.Controllers
 			if(await _repos.SaveAll())
 				return NoContent();
 			throw new Exception($"could no save user with id = {id}");
+		}
+
+		[HttpPost("{id}/like/{recipientId}")]
+		public async Task<IActionResult> LikeUser(int id, int recipientId)
+		{
+			if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+				return Unauthorized();
+			var like = await _repos.GetLike(id, recipientId);
+			if (like != null)
+			  return	BadRequest("You have already liked this user");
+			var likee = await _repos.GetUser(recipientId);
+			if (likee == null)
+				return NotFound();
+			like = new Like
+			{
+				LikerId = id,
+				LikeeId = recipientId
+			};
+			await _repos.Add<Like>(like);
+			if(await _repos.SaveAll())
+				return Ok();
+			return BadRequest("Could not like this user. Please try later");
 		}
 	}
 }

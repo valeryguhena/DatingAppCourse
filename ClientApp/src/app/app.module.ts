@@ -32,6 +32,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { ErrorInterceptor } from './_services/error.interceptor';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -47,9 +48,9 @@ export function tokenGetter(){
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-     MemberDetailComponent,
-     MemberEditComponent,   TimeAgoPipe,
-     PhotoEditorComponent
+      MemberDetailComponent,
+      MemberEditComponent,   TimeAgoPipe,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
@@ -57,13 +58,13 @@ export function tokenGetter(){
       HttpClientModule,
       FormsModule,
       BrowserAnimationsModule,
-     NgxGalleryModule,
-     ReactiveFormsModule,
-     FileUploadModule,
-     ButtonsModule.forRoot(),
-     PaginationModule.forRoot(),
-     BsDatepickerModule.forRoot(),
-     TabsModule.forRoot(),
+      NgxGalleryModule,
+      ReactiveFormsModule,
+      FileUploadModule,
+      ButtonsModule.forRoot(),
+      PaginationModule.forRoot(),
+      BsDatepickerModule.forRoot(),
+      TabsModule.forRoot(),
       BsDropdownModule.forRoot(),
       JwtModule.forRoot({
         config:{
@@ -79,10 +80,11 @@ export function tokenGetter(){
       AuthGuard,
       UserService,
       MemberListResolver,
-     MemberDetailResolver,
-     MemberEditResolver,
-     PreventUnsaveChangesGuard,
-     ErrorInterceptor
+      MemberDetailResolver,
+      MemberEditResolver,
+      PreventUnsaveChangesGuard,
+      ErrorInterceptor,
+      ListsResolver
 
    ],
    bootstrap: [

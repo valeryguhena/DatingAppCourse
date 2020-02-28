@@ -18,7 +18,7 @@ export class MembersListComponent implements OnInit {
   userParams:any={};
   pagination:Pagination;
 
-  constructor(private UserService:UserService, private alertify:AlertifyService,
+  constructor(private userService:UserService, private alertify:AlertifyService,
               private route:ActivatedRoute) { }
 
   ngOnInit() {
@@ -44,7 +44,7 @@ resetFilters(){
 }
 
   loadUsers(){
-    this.UserService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams).subscribe((result:PaginatedResult<User[]>)=>{
+    this.userService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams).subscribe((result:PaginatedResult<User[]>)=>{
       this.users = result.result;
       this.pagination = result.pagination;
     }, error =>{
