@@ -33,6 +33,9 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { FileUploadModule } from 'ng2-file-upload';
 import { ErrorInterceptor } from './_services/error.interceptor';
 import { ListsResolver } from './_resolvers/lists.resolver';
+import {AllMessagesResolver} from "./_resolvers/all-messages.resolver";
+import {MessagesResolver} from "./_resolvers/messages.resolver";
+import { MessageThreadComponent } from './members/message-thread/message-thread.component';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -50,7 +53,8 @@ export function tokenGetter(){
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,   TimeAgoPipe,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      MessageThreadComponent
    ],
    imports: [
       BrowserModule,
@@ -84,7 +88,8 @@ export function tokenGetter(){
       MemberEditResolver,
       PreventUnsaveChangesGuard,
       ErrorInterceptor,
-      ListsResolver
+      ListsResolver,
+      MessagesResolver
 
    ],
    bootstrap: [

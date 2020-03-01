@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="card-body">
+    <div *ngIf="messages?.length === 0">
+      No messages yet... say hi by using the message box below
+    </div>
+
+    <ul class="chat">
+      <li *ngFor="let message of messages">
+        <div >
+          
+          <div class="chat-img w-50 " [ngClass]="{'ml-auto': authService.decodedToken.nameid == message.senderId}" >
+            <small class="text-muted ">
+              <span class="fa fa-clock-o">{{message.messageSent | timeAgo}}</span>
+            </small>
+            <br>
+            <img src="{{message?.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class="rounded-circle ">
+         
+          <div class="chat-body" >
+            <div class="header">
+              <strong class="primary-font" >{{message.senderKnownAs}}</strong>
+            </div>
+            <p [ngClass]="{'text-primary': message.isRead}">{{message?.content}}</p>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="card-footer">
+    <form #messageForm="ngForm" (ngSubmit)="messageForm.valid && sendMessage()">
+      <div class="input-group">
+        <input type="text"
+        [(ngModel)]="newMessage.content"
+
+               name="content"
+               required
+               class="form-control input-sm"
+               placeholder="send a private message">
+        <div class="input-group-append">
+          <button *ngIf="messageForm.valid" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>

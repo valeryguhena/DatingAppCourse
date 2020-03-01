@@ -15,6 +15,9 @@ namespace ServerApp.Services
 		Task<Photo> GetPhoto(int id);
 		Task<Photo> GetMainPhoto(int userId);
 		Task<Like> GetLike(int userId, int recepientId);
+		Task<Message> GetMessage(int id);
+		Task<PageList<Message>> GetMessagesForUser(MessagesParam messagesParam);
+		Task<IEnumerable<Message>> GetMessageThread(int userId, int recipientId);
 
 	}
 }
